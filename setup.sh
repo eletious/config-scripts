@@ -7,4 +7,5 @@ apt install -y i3 \
 	git
 
 # copy configs
-cp ~/config-scripts/.tmux.conf ~/.tmux.conf
+cp ~/config-scripts/dotiles/.tmux.conf ~/.tmux.conf
+cp ~/config-scripts/dotfiles/.i3-config ~/.config/i3/config
