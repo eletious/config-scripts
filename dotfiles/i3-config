@@ -1,5 +1,5 @@
-## set wallpaper
-exec feh -bg-scale ~/Pictures/fern.jpeg
+## Set wallpaper
+exec feh --bg-scale ~/Pictures/wallpaper.jpg
 
 ## Colorscheme
 # can be changed later with the addition of pywal, and then set on the fly
@@ -194,4 +194,3 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
-
