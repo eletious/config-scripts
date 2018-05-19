@@ -36,14 +36,14 @@ git clone https://github.com/Airblader/i3 i3-gaps
 cd i3-gaps
 autoreconf --force --install
 mkdir -p build && cd build/
-../configure --prefix=/usr --sysconfdir=/etc --disable sanitizers
+../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
 make
 sudo make install
 #####
 
 # copy configs
-cp ~/config-scripts/dotiles/.tmux.conf ~/.tmux.conf
-cp ~/config-scripts/dotfiles/.i3-config ~/.config/i3/config
+cp ~/config-scripts/dotfiles/.tmux.conf ~/.tmux.conf
+cp ~/config-scripts/dotfiles/i3-config ~/.config/i3/config
 
 
 ### LAST STEP!  Reboot computer ###
