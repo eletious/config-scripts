@@ -7,7 +7,7 @@ exec feh --bg-scale ~/Pictures/wallpaper.jpg
 #class			border	backgr.	text	indicator
 client.focused 		#67875e #367435 #67875e #67875e
 client.focused_inactive	#264233 #264233 #264233 #264233
-client.unfocused	#202c2c #202c2c #202c2c #202c2c
+client.unfocused	#303c3c #264233 #202c2c #202c2c
 client.urgent		#9bba9a #9bba9a #9bba9a #9bba9a
 
 # default gap
