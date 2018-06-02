@@ -11,10 +11,10 @@ client.unfocused	#303c3c #264233 #202c2c #202c2c
 client.urgent		#9bba9a #9bba9a #9bba9a #9bba9a
 
 # default gap
-gaps inner 24
+gaps inner 29
 
 # default border
-default_border pixel 6
+default_border pixel 8
 
 
 ## Gaps keybind configurations
@@ -32,24 +32,24 @@ mode "$mode_gaps" {
 }
 
 mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
+        bindsym plus  gaps inner current plus 3
+        bindsym minus gaps inner current minus 3
         bindsym 0     gaps inner current set 0
 
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+plus  gaps inner all plus 3
+        bindsym Shift+minus gaps inner all minus 3
         bindsym Shift+0     gaps inner all set 0
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
+        bindsym plus  gaps outer current plus 4
+        bindsym minus gaps outer current minus 4
         bindsym 0     gaps outer current set 0
 
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+plus  gaps outer all plus 4
+        bindsym Shift+minus gaps outer all minus 4
         bindsym Shift+0     gaps outer all set 0
 
         bindsym Return mode "default"
