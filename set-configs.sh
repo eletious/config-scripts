@@ -9,7 +9,7 @@ cp ~/config-scripts/dotfiles/.tmux.conf ~/.tmux.conf
 
 # i3
 cp ~/config-scripts/dotfiles/i3-config ~/.config/i3/config
-cp ~/config-scripts/dotfiles/.i3status.conf
+cp ~/config-scripts/dotfiles/i3status.conf ~/.i3status.conf
 
 # vim
 cp ~/config-scripts/dotfiles/vimrc ~/.vimrc
