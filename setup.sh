@@ -42,9 +42,8 @@ sudo make install
 #####
 
 # copy configs
-cp ~/config-scripts/dotfiles/.tmux.conf ~/.tmux.conf
-cp ~/config-scripts/dotfiles/i3-config ~/.config/i3/config
-
+cd ~/config-scripts
+bash set-configs.sh
 
 ### LAST STEP!  Reboot computer ###
 sudo reboot now
