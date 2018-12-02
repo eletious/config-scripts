@@ -17,3 +17,8 @@ cp ~/config-scripts/dotfiles/vimrc ~/.vimrc
 # weechat
 cp ~/config-scripts/dotfiles/weechat.conf ~/.weechat/weechat.conf
 
+# Xresources (for urxvt)
+cp ~/config-scripts/dotfiles/Xresources ~/.Xresources
+
+# bashrc
+cp ~/config-scripts/dotfiles/bashrc ~/.bashrc

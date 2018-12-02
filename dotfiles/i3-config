@@ -1,23 +1,41 @@
 ## Set wallpaper
-exec feh --bg-scale ~/Pictures/wallpaper.jpg
+exec wal -i ~/Pictures/wavesFaded.jpg
 
 ## Colorscheme
 # can be changed later with the addition of pywal, and then set on the fly
 
-#class			border	backgr.	text	indicator
-client.focused 		#67875e #367435 #67875e #67875e
-client.focused_inactive	#264233 #264233 #264233 #264233
-client.unfocused	#303c3c #264233 #202c2c #202c2c
-client.urgent		#9bba9a #9bba9a #9bba9a #9bba9a
+# the below will get a $bg and $fg color from xresources
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $fgi i3wm.color8 #f0f0f0
+set_from_resource $bg i3wm.color0 #f0f0f0
+
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $fg     $fg  $fg       
+client.focused_inactive $bg     $fgi     $fg  $fgi      
+client.unfocused        $bg     $fgi     $fg  $fgi     
+client.urgent           $bg     $fgi     $fg  $fgi     
+client.placeholder      $bg     $fgi     $fg  $fgi      
+
+client.background       $bg
+
+
+### Previous Values ###
+##class			border	backgr.	text	indicator child_border
+#client.focused 		#67875e #367435 #67875e #67875e
+#client.focused_inactive	#264233 #264233 #264233 #264233
+#client.unfocused	#303c3c #264233 #202c2c #202c2c
+#client.urgent		#9bba9a #9bba9a #9bba9a #9bba9a
+
 
 # default gap
-gaps inner 29
+gaps inner 30
 
 # default border
-default_border pixel 8
+default_border pixel 4
 
 
-## Gaps keybind configurations
+### Gaps keybind configurations ###
 
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -56,6 +74,19 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
+### Media Player ###
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec playerctl next
+
+### Sound ###
+# Raise Volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+ && paplay /usr/share/sounds/freedesktop/$
+# Lower Volume
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%- && paplay /usr/share/sounds/freedesktop/$
+bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle-mute # Toggle muting
+
 
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
@@ -68,19 +99,16 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:scientifica 11
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
-
-# start dmenu (desktop entries only)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -189,15 +217,25 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# start dmenu (desktop entries only)
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu=dmenu -i -nb #264233 -nf #367435 -sb #367435 -sf #9bba9a
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id rofi -show run
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
 	colors {
-		background #202c2c
-		focused_workspace	#9bba9a	#264233	#9bba9a
-		active_workspace	#367435	#367435	#367435
-		inactive_workspace	#264233	#264233	#365243
-		urgent_workspace	#9bba9a	#264233	#367435
+        background $bg
+		focused_workspace	$fg	$bg	$fg
+		active_workspace	$bg	$bg	$fg
+		inactive_workspace	$bg	$bg	$fg
+#		urgent_workspace	$fg	$bg	$bg
+        statusline          $fg
 	}
-        status_command i3status
+    status_command i3status
+    position top
 }
+exec --no-startup-id xrdb -merge ~/.Xresources
+exec --no-startup-id nm-applet &
+exec --no-startup-id compton -c
