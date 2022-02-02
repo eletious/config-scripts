@@ -19,6 +19,12 @@ let g:limelight_conceal_ctermfg = 'gray'
 let g:floaterm_autoclose = 2
 let g:floaterm_opener = 'tabe'
 
+noremap  <leader>t  :FloatermToggle<CR>
+noremap! <leader>t  <Esc>:FloatermToggle<CR>
+tnoremap <leader>t  <C-\><C-n>:FloatermToggle<CR>
+
+noremap  <leader>p  :FloatermNew ranger<CR>
+
 set termguicolors
 let ayucolor = 'dark'
 colorscheme ayu
